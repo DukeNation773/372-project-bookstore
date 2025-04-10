@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+  Name: Christian Wilson
+  Date: 02.28.2024
+  CSC 372-01
+
+  This is the admin-upload.html page for my project. This works as a bulk product upload page for the Book Emporium
+    website. Links to the index.html and admin-products.html pages.
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="admin.css">
+    </head>
+    <body>
+        <header class="nav-bar">
+            <a href="index.html">Home</a>
+            <a href="admin-products.html">Product Listing</a>
+        </header>
+
+        <h1>Bulk Product Upload</h1>
+
+        <div class="upload-container">
+            <form>
+                <label for="file-upload">Upload a bulk product file:</label>
+                <input type="file" id="file-upload" class="file-input"
+                    accept=".json, .csv, .txt">
+                <br>
+                <button type="submit" class="upload-btn">Upload File</button>
+            </form>
+
+            <div class="instructions">
+                <h3>Accepted File Formats:</h3>
+                <p>We accept <strong>.json, .csv, .txt</strong> file
+                    formats.</p>
+                <p>Ensure your file follows this structure:</p>
+
+                <div class="code-block">
+                    {
+                    "products": [
+                    {
+                    "name": "Red Rising",
+                    "price": 15.99,
+                    "genre": "Sci-Fi",
+                    "page_count": 382,
+                    "category_name": "Fiction",
+                    "image_path": "/images/redrising.png",
+                    "description": "Darrow will stop at nothing for
+                    revenge, even if he must become the enemy to do so."
+                    },
+                    {
+                    "name": "The Hobbit",
+                    "price": 15.50,
+                    "genre": "Fantasy",
+                    "page_count": 310,
+                    "category_name": "Fiction",
+                    "image_path": "/images/thehobbit.png",
+                    "description":
+                    "The epic adventure of Bilbo Baggins to Middle Earth."
+                    }
+                    ]
+                    }
+                </div>
+
+                <a href="sample.json" class="download-sample" download>Download
+                    Sample JSON File</a>
+            </div>
+        </div>
+    </body>
+</html>

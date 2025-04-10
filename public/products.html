@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--
+  Name: Christian Wilson
+  Date: 02.07.2024
+  CSC 372-01
+
+  This is the products.html page for my project. This works as the product listing page for the Book Emporium 
+  website. Links to itself and the products.html page.
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>product listing page</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header class="nav-bar">
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="admin-products.html">Admin Page</a>
+            <div class="search-container">
+                <input
+                    type="text"
+                    class="search-box"
+                    placeholder="Search for a book..." />
+                <button>Search</button>
+            </div>
+        </header>
+
+        <h1>Scroll to Find Your Next Favorite Book</h1>
+
+        <label for="genre">Genre:</label>
+        <select id="genre">
+            <option>All Genres</option>
+            <option>Fiction</option>
+            <option>Non-Fiction</option>
+            <option>Mystery</option>
+            <option>Fantasy</option>
+            <option>Sci-Fi</option>
+            <option>Romance</option>
+            <option>Biography</option>
+        </select>
+
+        <label for="price">Price Range:</label>
+        <select id="price">
+            <option>All Prices</option>
+            <option>$0 - $10</option>
+            <option>$10 - $20</option>
+            <option>$20 - $50</option>
+            <option>$50+</option>
+        </select>
+
+        <br><br>
+
+        <div class="product-grid">
+            <div class="product-preview">
+                <img src="images/redrising.png" alt="Book Thumbnail">
+                <h3>Red Rising</h3>
+                <p>$15.99</p>
+                <a href="product-view.html">View </a>
+            </div>
+
+            <div class="product-preview">
+                <img src="#"
+                    alt="Book Thumbnail">
+                <h3>Book Title</h3>
+                <p>$20.00</p>
+                <a href="#">View</a>
+            </div>
+
+            <div class="product-preview">
+                <img src="#"
+                    alt="Book Thumbnail">
+                <h3>Book Title</h3>
+                <p>$12.50</p>
+                <a href="#">View</a>
+            </div>
+
+            <div class="product-preview">
+                <img src="#"
+                    alt="Book Thumbnail">
+                <h3>Book Title</h3>
+                <p>$18.75</p>
+                <a href="#">View Details</a>
+            </div>
+            <div class="product-preview">
+                <img src="#"
+                    alt="Book Thumbnail">
+                <h3>Book Title</h3>
+                <p>$18.75</p>
+                <a href="#">View</a>
+            </div>
+            <div class="product-preview">
+                <img src="#"
+                    alt="Book Thumbnail">
+                <h3>Book Title</h3>
+                <p>$18.75</p>
+                <a href="#">View</a>
+            </div>
+            <div class="product-preview">
+                <img src="images/redrising.png" alt="Book Thumbnail">
+                <h3>Book Title</h3>
+                <p>$18.75</p>
+                <a href="#">View</a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>© 2025 Book Emporium. <br> All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </footer>
+    </body>
+</html>

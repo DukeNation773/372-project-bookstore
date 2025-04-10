@@ -1,0 +1,275 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th,
+td {
+  border-bottom: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+}
+
+/** nav-bar styles**/
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #644d3c;
+  padding: 15px 20px;
+  width: 100%;
+  gap: 20px;
+}
+
+.nav-bar p {
+  margin: 0;
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 17px;
+}
+
+.nav-bar a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.nav-bar a:hover {
+  background-color: #c7a379;
+  color: black;
+}
+
+/* file upload styles */
+.upload-container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.file-input {
+  margin: 10px 0;
+}
+
+.upload-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.upload-btn:hover {
+  background-color: blue;
+}
+
+.instructions {
+  text-align: left;
+  font-size: 14px;
+  color: #555;
+  margin-top: 15px;
+}
+
+.code-block {
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: monospace;
+  text-align: left;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* admin actions container styles */
+.admin-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+}
+
+.search-bar input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.search-bar button:hover {
+  background-color: blue;
+}
+
+.add-product-btn {
+  background-color: lightgreen;
+  color: black;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.add-product-btn:hover {
+  background-color: darkgreen;
+  color: white;
+}
+
+/* product table styles */
+.product-container {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 50px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.action-btn {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.edit-btn {
+  background-color: orange;
+  color: white;
+  text-decoration: none;
+}
+
+.archive-btn {
+  background-color: gray;
+  color: white;
+}
+
+.delete-btn {
+  background-color: red;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: darkorange;
+  color: white;
+}
+
+.archive-btn:hover {
+  background-color: darkgray;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: darkred;
+}
+
+/* edit product form styles */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin-top: 60px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-container input,
+.form-container textarea {
+  width: 300px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+.save-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 300px;
+}
+
+.save-btn:hover {
+  background-color: blue;
+}

@@ -1,0 +1,23 @@
+INSERT INTO categories (name)
+VALUES 
+    ('Science Fiction'),
+    ('Fantasy'),
+    ('Mystery'),
+    ('Biography'),
+    ('Young Adult'),
+    ('Romance'),
+    ('Crime'),
+    ('Horror'),
+    ('Thriller'),
+    ('Cookbooks'),
+    ('Self-Help'),
+    ('History'),
+    ('Poetry'),
+    ('Children Books'),
+    ('Travel'),
+    ('Religion'),
+    ('Health & Wellness'),
+    ('Science & Nature'),
+    ('Business & Economics'),
+    ('True Crime'),
+    ('Memoir');

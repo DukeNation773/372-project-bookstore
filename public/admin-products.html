@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+  Name: Christian Wilson
+  Date: 02.28.2024
+  CSC 372-01
+
+  This is the admin-products.html page for my project. This works as a product management page for the Book Emporium
+    website. Links to the index.html, admin-upload.html pages, and each product can be edited, deleted, or archieved.
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="admin.css">
+        <title>Admin - Product Management</title>
+    </head>
+    <body>
+        <header class="nav-bar">
+            <a href="index.html">Home</a>
+            <a href="admin-upload.html">Bulk Upload</a>
+        </header>
+
+        <h1>Product Management</h1>
+
+        <div class="admin-actions">
+            <div class="search-bar">
+                <input type="text" placeholder="Search by product name...">
+                <input type="text" placeholder="Search by category...">
+                <button>Search</button>
+            </div>
+            <a href="admin-add-product.html" class="add-product-btn">+ Add New
+                Product</a>
+        </div>
+
+        <div class="product-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Genre</th>
+                        <th>Page Count</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><img src="images/redrising.png"
+                                class="product-image" alt="Book 1"></td>
+                        <td>Red Rising</td>
+                        <td>Fiction</td>
+                        <td>Sci-Fi</td>
+                        <td>382</td>
+                        <td>$15.99</td>
+                        <td>
+                            <a href="product-edit.html"
+                                class="action-btn edit-btn">Edit</a>
+                            <button
+                                class="action-btn archive-btn">Archive</button>
+                            <button
+                                class="action-btn delete-btn">Delete</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td><img src="#" class="product-image"
+                                alt="Book 2"></td>
+                        <td>The Hobbit</td>
+                        <td>Fiction</td>
+                        <td>Fantasy</td>
+                        <td>310</td>
+                        <td>$15.50</td>
+                        <td>
+                            <button class="action-btn edit-btn">Edit</button>
+                            <button
+                                class="action-btn archive-btn">Archive</button>
+                            <button
+                                class="action-btn delete-btn">Delete</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td><img src="#" class="product-image"
+                                alt="Book 3"></td>
+                        <td>Title</td>
+                        <td>Fiction</td>
+                        <td>Mystery</td>
+                        <td>504</td>
+                        <td>$12.99</td>
+                        <td>
+                            <button class="action-btn edit-btn">Edit</button>
+                            <button
+                                class="action-btn archive-btn">Archive</button>
+                            <button
+                                class="action-btn delete-btn">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+</html>
