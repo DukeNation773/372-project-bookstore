@@ -1,11 +1,15 @@
 const express = require("express");
-const router = express.Router();
+const multer = require("multer");
 const adminController = require("../controllers/adminController");
 
-router.post("/products", adminController.addProduct);
-router.put("/products/:id", adminController.editProduct);
-router.post("/products/bulk", adminController.bulkUpload);
-router.put("/products/:id/archive", adminController.archiveProduct);
-router.delete("/products/:id", adminController.deleteProduct);
+const router = express.Router();
+const upload = multer({ dest: "uploads/" });
+
+router.post("/", adminController.addProduct);
+router.put("/edit/:id", adminController.editProduct);
+router.post("/bulk-upload", upload.single("file"), adminController.bulkUpload);
+router.put("/archive/:id", adminController.archiveProduct);
+router.delete("/delete/:id", adminController.deleteProduct);
+router.get("/products", adminController.getAdminProducts);
 
 module.exports = router;

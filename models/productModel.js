@@ -7,7 +7,7 @@ function getAllProducts() {
       categories.name AS category_name
     FROM products
     JOIN categories ON products.category_id = categories.id
-    WHERE products.status = 'active'
+    WHERE products.status = 'active';
   `);
   return info.all();
 }
@@ -43,8 +43,14 @@ function searchProducts(name, categoryId) {
   );
 }
 
+function getAllCategories() {
+  const info = db.prepare("SELECT name FROM categories ORDER BY id");
+  return info.all();
+}
+
 module.exports = {
   getAllProducts,
   getProductById,
   searchProducts,
+  getAllCategories,
 };

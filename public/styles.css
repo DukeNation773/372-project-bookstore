@@ -382,3 +382,32 @@ th {
 .checkout-btn:hover {
   background-color: #c6c97b;
 }
+
+/* Random Book styles */
+#random-book-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#random-book-btn {
+  background-color: #a7b39b;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#random-book-btn:hover {
+  background-color: #c6c97b;
+}
+
+#random-book-title {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+

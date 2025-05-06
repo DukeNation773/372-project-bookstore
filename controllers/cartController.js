@@ -25,9 +25,16 @@ function viewCart(req, res) {
   res.json(cart);
 }
 
+function updateQuantity(req, res) {
+  const { user_id, product_id, quantity } = req.body;
+  const result = cartModel.updateQuantity(user_id, product_id, quantity);
+  res.json(result);
+}
+
 module.exports = {
   addToCart,
   removeFromCart,
   checkout,
   viewCart,
+  updateQuantity
 };

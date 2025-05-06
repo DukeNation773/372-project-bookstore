@@ -49,51 +49,70 @@ function editProduct(id, updates) {
 }
 
 function bulkUpload(products) {
-  const info = db.prepare(`
-    INSERT INTO products (
-      name, author, description, image_path, type,
-      category_id, page_count, price
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-  `);
+  const errors = [];
 
-  const inserted = [];
-
-  const insertMany = db.transaction((items) => {
-    for (const p of items) {
-      const result = info.run(
-        p.name,
-        p.author,
-        p.description,
-        p.image_path,
-        p.type,
-        p.category_id,
-        p.page_count,
-        p.price
-      );
-      inserted.push({ id: result.lastInsertRowid, ...p });
-    }
+  const categoryMap = {};
+  const categoryRows = db.prepare("SELECT id, name FROM categories").all();
+  categoryRows.forEach((cat) => {
+    categoryMap[cat.name.toLowerCase()] = cat.id;
   });
 
-  insertMany(products);
+  const info = db.prepare(`
+    INSERT INTO products 
+    (name, author, type, category_id, page_count, price, image_path, description, status)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'active')
+  `);
 
-  return { message: "Bulk upload complete", products: inserted };
-}
+  for (const prod of products) {
+    try {
+      const categoryId =
+        Number(prod.category_id) ||
+        categoryMap[prod.category_name?.toLowerCase()];
+      if (!categoryId) throw new Error(`Category not found for ${prod.name}`);
 
-function archiveProduct(id, archived = true) {
-  const status = archived ? "archived" : "active";
-
-  db.prepare(
-    `
-    UPDATE products SET status = ? WHERE id = ?
-  `
-  ).run(status, id);
+      info.run(
+        prod.name,
+        prod.author || "Unknown",
+        prod.type || "Fiction",
+        categoryId,
+        prod.page_count,
+        prod.price,
+        prod.image_path,
+        prod.description
+      );
+    } catch (err) {
+      errors.push({ name: prod.name, error: err.message });
+    }
+  }
 
   return {
-    message: `Product ${archived ? "archived" : "restored"}`,
-    product_id: id,
+    message: `${products.length - errors.length} out of ${
+      products.length
+    } products uploaded`,
+    errors,
   };
 }
 
+function archiveProduct(id, currentStatus) {
+  const newStatus = currentStatus === "archived" ? "active" : "archived";
+
+  const info = db
+    .prepare(
+      `
+    UPDATE products
+    SET status = ?
+    WHERE id = ?
+  `
+    )
+    .run(newStatus, id);
+
+  return {
+    message:
+      info.changes > 0
+        ? `Product ${id} status updated to ${newStatus}`
+        : `Product ${id} not found`,
+  };
+}
 function deleteProduct(id) {
   const info = db
     .prepare(
@@ -111,10 +130,23 @@ function deleteProduct(id) {
   };
 }
 
+function getAllAdminProducts() {
+  const info = db.prepare(`
+    SELECT 
+      products.*, 
+      categories.name AS category_name
+    FROM products
+    JOIN categories ON products.category_id = categories.id
+    ORDER BY products.id DESC
+  `);
+  return info.all();
+}
+
 module.exports = {
   addProduct,
   editProduct,
   bulkUpload,
   archiveProduct,
   deleteProduct,
+  getAllAdminProducts,
 };

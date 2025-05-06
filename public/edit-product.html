@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+  Name: Christian Wilson
+  Date: 02.28.2024
+  CSC 372-01
+
+  This is the product-edit.html page for my project. This works as an edit product page for the Book Emporium
+    website. Links to the index.html and admin-products.html pages.
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="admin.css">
+        <title>Document</title>
+        <link rel="stylesheet" href="admin.css">
+    </head>
+    <body>
+        <header class="nav-bar">
+            <a href="index.html">Home</a>
+            <a href="admin-upload.html">Bulk Upload</a>
+            <a href="admin-products.html">Product Listing</a>
+        </header>
+
+        <div class="edit-container">
+            <h1>Edit Product</h1>
+            <div class="form-container">
+                <form id="edit-form">
+                    <input type="text" id="name" name="name" placeholder="Name"
+                        required />
+                    <input type="text" id="author" name="author"
+                        placeholder="Author" required />
+                    <input type="text" id="image_path" name="image_path"
+                        placeholder="Image Path" required />
+                    <input type="text" id="type" name="type"
+                        placeholder="Type (Fiction/Non-Fiction)" required />
+                    <input type="number" id="category_id" name="category_id"
+                        placeholder="Category ID" required />
+                    <input type="number" id="page_count" name="page_count"
+                        placeholder="Page Count" required />
+                    <input type="number" step="0.01" id="price" name="price"
+                        placeholder="Price" required />
+                    <textarea id="description" name="description"
+                        placeholder="Description" required></textarea>
+                    <button type="submit" class="save-btn">Save</button>
+                </form>
+            </div>
+            <script src="js/edit-product.js"></script>
+        </body>
+    </html>

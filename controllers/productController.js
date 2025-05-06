@@ -17,8 +17,15 @@ function searchProducts(req, res) {
   res.json(results);
 }
 
+function getAllCategories(req, res) {
+  const categories = productModel.getAllCategories();
+  res.json(categories);
+}
+
+
 module.exports = {
   getAllProducts,
   getProductById,
   searchProducts,
+  getAllCategories,
 };

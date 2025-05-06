@@ -49,4 +49,54 @@ VALUES
     6, -- Romance
     313,
     11.00
+),
+(
+    'Golden Son',
+    'Pierce Brown',
+    'Second book in the Red Rising series.',
+    '/images/golden.png',
+    'Fiction',
+    1,
+    399,
+    15.99
+),
+(
+    'Morning Star',
+    'Pierce Brown',
+    'Third and final book in the Red Rising series.',
+    '/images/morning.png',
+    'Fiction',
+    1,
+    399,
+    15.99
+),
+(
+    'Everything is Tuberculosis',
+    'John Green',
+    'History of tuberculosis and how it has shaped history.',
+    '/images/tuberculosis.png',
+    'Non-Fiction',
+    12,
+    189,
+    19.99
+),
+(
+    'The Great Gatsby',
+    'F. Scott Fitzgerald',
+    'Follow Gatsbys relentless pursuit of Daisy and the corrupting influence of wealth and the American Dream.',
+    '/images/gatsby.png',
+    'Fiction',
+    6,
+    180,
+    9.99
+),
+(
+    'Eragon',
+    'Christopher Paolini',
+    'A farm boy discovers a dragon egg, launching him into a world of magic.',
+    '/images/eragon.png',
+    'Fiction',
+    2,
+    544,
+    14.50
 );

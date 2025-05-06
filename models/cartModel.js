@@ -4,7 +4,8 @@ function addToCart(product_id, quantity, user_id) {
   let cart = db
     .prepare(
       `
-    SELECT * FROM carts WHERE user_id = ? AND status = 'new'
+    SELECT * FROM carts WHERE user_id = ? AND status IN ('new', 'active')
+
   `
     )
     .get(user_id);
@@ -54,7 +55,8 @@ function removeFromCart(product_id, user_id) {
   const cart = db
     .prepare(
       `
-    SELECT * FROM carts WHERE user_id = ? AND status = 'new'
+    SELECT * FROM carts WHERE user_id = ? AND status IN ('new', 'active')
+
   `
     )
     .get(user_id);
@@ -74,7 +76,8 @@ function checkout(user_id) {
   const cart = db
     .prepare(
       `
-    SELECT * FROM carts WHERE user_id = ? AND status = 'new'
+    SELECT * FROM carts WHERE user_id = ? AND status IN ('new', 'active')
+
   `
     )
     .get(user_id);
@@ -90,9 +93,7 @@ function checkout(user_id) {
 function viewCart(user_id) {
   const cart = db
     .prepare(
-      `
-    SELECT * FROM carts WHERE user_id = ? AND status = 'new'
-  `
+      `SELECT * FROM carts WHERE user_id = ? AND status IN ('new', 'active')`
     )
     .get(user_id);
 
@@ -101,17 +102,17 @@ function viewCart(user_id) {
   const items = db
     .prepare(
       `
-    SELECT 
-      products.id,
-      products.name,
-      products.author,
-      products.price,
-      cartproducts.quantity,
-      (products.price * cartproducts.quantity) AS total
-    FROM cartproducts
-    JOIN products ON cartproducts.product_id = products.id
-    WHERE cartproducts.cart_id = ?
-  `
+      SELECT 
+        cartproducts.product_id AS product_id,
+        products.name,
+        products.author,
+        products.price,
+        cartproducts.quantity,
+        (products.price * cartproducts.quantity) AS total
+      FROM cartproducts
+      JOIN products ON cartproducts.product_id = products.id
+      WHERE cartproducts.cart_id = ?
+    `
     )
     .all(cart.id);
 
@@ -121,6 +122,7 @@ function viewCart(user_id) {
     total: items.reduce((sum, item) => sum + item.total, 0),
   };
 }
+
 
 function abandonOldCarts(days = 3) {
   const info = db
@@ -139,10 +141,35 @@ function abandonOldCarts(days = 3) {
   };
 }
 
+function updateQuantity(user_id, product_id, quantity) {
+  const cart = db
+    .prepare(
+      `
+    SELECT * FROM carts 
+    WHERE user_id = ? AND status IN ('new', 'active')
+  `
+    )
+    .get(user_id);
+
+  if (!cart) return { message: "No cart found" };
+
+  db.prepare(
+    `
+    UPDATE cartproducts 
+    SET quantity = ? 
+    WHERE cart_id = ? AND product_id = ?
+  `
+  ).run(quantity, cart.id, product_id);
+
+  return { message: "Quantity updated" };
+}
+
+
 module.exports = {
   addToCart,
   removeFromCart,
   checkout,
   viewCart,
   abandonOldCarts,
+  updateQuantity
 };
